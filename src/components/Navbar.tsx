@@ -78,7 +78,7 @@ export default function Navbar() {
                             className="w-10 h-10 sm:w-12 sm:h-12 object-contain transition-transform group-hover:scale-105 flex-shrink-0"
                         />
                         <span className="font-serif font-bold text-3xl sm:text-4xl md:text-5xl tracking-tight text-foreground transition-opacity group-hover:opacity-80 whitespace-nowrap">
-                            The Commonwealth
+                            The Commonwealth Newspaper
                         </span>
                     </Link>
 
