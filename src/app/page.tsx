@@ -62,6 +62,15 @@ export default function Home() {
     // regex on regex to strip markdown. absolute dogshit but brendan eich left us no choice
     s.replace(/[#*`_\[\]]/g, "").replace(/!\[.*?\]\(.*?\)/g, "").trim();
 
+  const listItems = selectedCategory === "All"
+    ? visibleSecondaries
+    : [...(featured && (featured.category ?? "News") === selectedCategory ? [featured] : []), ...visibleSecondaries];
+
+  const sideHustleCount = 4;
+  const isSplitLayout = !!featured && selectedCategory === "All";
+  const sideArticles = isSplitLayout ? listItems.slice(0, sideHustleCount) : listItems;
+  const bottomArticles = isSplitLayout ? listItems.slice(sideHustleCount) : [];
+
   if (loading) {
     return (
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 flex justify-center">
@@ -139,7 +148,7 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14">
 
             {/* ── Featured Article (Foreign Affairs style) ── */}
-            {featured && selectedCategory === "All" && (
+            {isSplitLayout && featured && (
               <div className="lg:col-span-7">
                 <Link href={`/article/${featured.slug}`} className="group block">
                   {/* Title + subtitle + author ABOVE the image */}
@@ -169,11 +178,11 @@ export default function Home() {
             )}
 
             {/* ── Secondary Articles Column ──────────────── */}
-            <div className={`${featured && selectedCategory === "All" ? "lg:col-span-5 lg:border-l border-border lg:pl-10" : "lg:col-span-12"} flex flex-col gap-0`}>
-              {(selectedCategory === "All" ? visibleSecondaries : [...(featured && (featured.category ?? "News") === selectedCategory ? [featured] : []), ...visibleSecondaries]).length === 0 ? (
+            <div className={`${isSplitLayout ? "lg:col-span-5 lg:border-l border-border lg:pl-10" : "lg:col-span-12"} flex flex-col gap-0`}>
+              {sideArticles.length === 0 ? (
                 <p className="text-gray-500 font-sans text-sm tracking-wide py-10 text-center">No articles in this category for this issue.</p>
               ) : (
-                (selectedCategory === "All" ? visibleSecondaries : [...(featured && (featured.category ?? "News") === selectedCategory ? [featured] : []), ...visibleSecondaries]).map((article) => {
+                sideArticles.map((article) => {
                   const hasImage = !!article.coverImageUrl;
                   const excerpt = stripMd(article.content).substring(0, 150);
                   return (
@@ -215,6 +224,50 @@ export default function Home() {
               )}
             </div>
           </div>
+
+          {/* ── Bottom Articles Rows ─────────────────────── */}
+          {bottomArticles.length > 0 && (
+            <div className="mt-14 pt-10 border-t border-border grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 gap-y-12">
+              {bottomArticles.map((article) => {
+                const hasImage = !!article.coverImageUrl;
+                const excerpt = stripMd(article.content).substring(0, 150);
+                return (
+                  <Link
+                    key={article.id}
+                    href={`/article/${article.slug}`}
+                    className="group flex flex-col gap-3"
+                  >
+                    {hasImage && (
+                      <div className="mb-2">
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                          src={article.coverImageUrl!}
+                          alt=""
+                          className="w-full h-48 object-cover rounded-sm border border-border/30"
+                        />
+                      </div>
+                    )}
+                    <div className="flex-1 min-w-0">
+                      {article.category && (
+                        <span className="font-sans text-[10px] font-bold uppercase tracking-widest text-accent block mb-1.5">
+                          {article.category}
+                        </span>
+                      )}
+                      <h3 className="font-serif text-xl font-bold text-foreground group-hover:text-accent transition-colors leading-snug tracking-tight mb-2 line-clamp-3">
+                        {article.title}
+                      </h3>
+                      <p className="font-serif text-gray-500 text-sm leading-relaxed line-clamp-3 mb-2.5">
+                        {excerpt}…
+                      </p>
+                      <p className="text-[10px] font-bold uppercase tracking-widest text-gray-500 font-sans">
+                        {article.author}
+                      </p>
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
+          )}
 
           {/* ── Archive link ───────────────────────────────── */}
           <div className="mt-16 pt-8 border-t border-border">
