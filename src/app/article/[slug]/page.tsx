@@ -170,9 +170,6 @@ export default function ArticlePage() {
                     <h2 className="font-serif text-3xl font-bold text-foreground mb-3 opacity-90 group-hover:opacity-100 transition-opacity">
                         The Commonwealth Newspaper
                     </h2>
-                    <p className="font-sans text-xs uppercase tracking-[0.2em] text-gray-400 font-bold max-w-sm mx-auto group-hover:text-gray-600 transition-colors">
-                        Truth &bull; Integrity &bull; Student Voices
-                    </p>
                 </Link>
             </footer>
         </article>

@@ -1,0 +1,65 @@
+[debug] [2026-03-10T14:34:16.898Z] ----------------------------------------------------------------------
+[debug] [2026-03-10T14:34:16.900Z] Command:       /usr/local/bin/node /Users/ewu/Git-Repos/cws-newspaper/node_modules/.bin/firebase deploy --only hosting
+[debug] [2026-03-10T14:34:16.901Z] CLI Version:   15.8.0
+[debug] [2026-03-10T14:34:16.901Z] Platform:      darwin
+[debug] [2026-03-10T14:34:16.901Z] Node Version:  v24.7.0
+[debug] [2026-03-10T14:34:16.901Z] Time:          Tue Mar 10 2026 10:34:16 GMT-0400 (Eastern Daylight Time)
+[debug] [2026-03-10T14:34:16.901Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-03-10T14:34:18.209Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-03-10T14:34:18.210Z] > authorizing via signed-in user (drinkfood.exe@gmail.com)
+[debug] [2026-03-10T14:34:18.210Z] [iam] checking project cws-paper for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2026-03-10T14:34:18.210Z] Checked if tokens are valid: false, expires at: 1773091370698
+[debug] [2026-03-10T14:34:18.210Z] Checked if tokens are valid: false, expires at: 1773091370698
+[debug] [2026-03-10T14:34:18.211Z] > refreshing access token with scopes: []
+[debug] [2026-03-10T14:34:18.212Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-03-10T14:34:18.212Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-03-10T14:34:18.348Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-03-10T14:34:18.348Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-03-10T14:34:18.363Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/cws-paper:testIamPermissions [none]
+[debug] [2026-03-10T14:34:18.363Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/cws-paper:testIamPermissions  x-goog-user-project=cws-paper
+[debug] [2026-03-10T14:34:18.363Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/cws-paper:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2026-03-10T14:34:18.849Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/cws-paper:testIamPermissions 200
+[debug] [2026-03-10T14:34:18.849Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/cws-paper:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2026-03-10T14:34:18.849Z] Checked if tokens are valid: true, expires at: 1773156857348
+[debug] [2026-03-10T14:34:18.849Z] Checked if tokens are valid: true, expires at: 1773156857348
+[debug] [2026-03-10T14:34:18.849Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/cws-paper [none]
+[debug] [2026-03-10T14:34:19.384Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/cws-paper 200
+[debug] [2026-03-10T14:34:19.384Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/cws-paper {"projectId":"cws-paper","projectNumber":"468894430910","displayName":"cws-paper","name":"projects/cws-paper","resources":{"hostingSite":"cws-paper"},"state":"ACTIVE","etag":"1_5814b9f9-6acc-4047-a001-93ba47f39912"}
+[debug] [2026-03-10T14:34:21.613Z] Checked if tokens are valid: true, expires at: 1773156857348
+[debug] [2026-03-10T14:34:21.613Z] Checked if tokens are valid: true, expires at: 1773156857348
+[debug] [2026-03-10T14:34:21.614Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/cws-paper/sites pageToken=&pageSize=10
+[debug] [2026-03-10T14:34:22.594Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/cws-paper/sites 200
+[debug] [2026-03-10T14:34:22.595Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/cws-paper/sites {"sites":[{"name":"projects/cws-paper/sites/cws-paper","defaultUrl":"https://cws-paper.web.app","appId":"1:468894430910:web:f1e137fcc7060da85a10ef","type":"DEFAULT_SITE"}]}
+[debug] [2026-03-10T14:34:22.595Z] Checked if tokens are valid: true, expires at: 1773156857348
+[debug] [2026-03-10T14:34:22.596Z] Checked if tokens are valid: true, expires at: 1773156857348
+[debug] [2026-03-10T14:34:22.596Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:468894430910:web:f1e137fcc7060da85a10ef/config [none]
+[debug] [2026-03-10T14:34:22.917Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:468894430910:web:f1e137fcc7060da85a10ef/config 200
+[debug] [2026-03-10T14:34:22.917Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:468894430910:web:f1e137fcc7060da85a10ef/config {"projectId":"cws-paper","appId":"1:468894430910:web:f1e137fcc7060da85a10ef","storageBucket":"cws-paper.firebasestorage.app","apiKey":"AIzaSyDvWGp6ihZZ9RdGpJDN5iwumfxB-LtQJGs","authDomain":"cws-paper.firebaseapp.com","messagingSenderId":"468894430910","measurementId":"G-BF7L1L5CH6","projectNumber":"468894430910","version":"2"}
+[info] 
+   Thank you for trying our early preview of Next.js support on Firebase Hosting.
+   During the preview, support is best-effort and breaking changes can be expected. Proceed with caution.
+   The integration is known to work with Next.js version 12 - 15.0. You may encounter errors.
+
+   Documentation: https://firebase.google.com/docs/hosting/frameworks/nextjs
+   File a bug: https://github.com/firebase/firebase-tools/issues/new?template=bug_report.md
+   Submit a feature request: https://github.com/firebase/firebase-tools/issues/new?template=feature_request.md
+
+   We'd love to learn from you. Express your interest in helping us shape the future of Firebase Hosting: https://goo.gle/41enW5X
+
+[debug] [2026-03-10T14:34:27.750Z] Checked if tokens are valid: true, expires at: 1773156857348
+[debug] [2026-03-10T14:34:27.751Z] Checked if tokens are valid: true, expires at: 1773156857348
+[debug] [2026-03-10T14:34:27.751Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/cws-paper/sites/cws-paper [none]
+[debug] [2026-03-10T14:34:28.268Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/cws-paper/sites/cws-paper 200
+[debug] [2026-03-10T14:34:28.268Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/cws-paper/sites/cws-paper {"name":"projects/cws-paper/sites/cws-paper","defaultUrl":"https://cws-paper.web.app","appId":"1:468894430910:web:f1e137fcc7060da85a10ef","type":"DEFAULT_SITE"}
+[info] ▲ Next.js 16.1.6 (Turbopack)
+
+[info] - Environments: .env.local, .env
+
+
+[info]   Creating an optimized production build ...
+
+[info] ✓ Compiled successfully in 8.9s
+
+[info]   Running TypeScript ...
+
